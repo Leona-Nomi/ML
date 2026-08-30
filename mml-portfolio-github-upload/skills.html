@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MML 的个人经历页面。" />
+    <title>MML / Personal Experience</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="refined-pages.css" />
+    <link rel="stylesheet" href="site-improvements.css" />
+  </head>
+  <body class="skills-page refined-page experience-timeline-page" data-previous-page="index.html" data-next-page="work.html">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <header class="page-header">
+      <a class="refined-brand" href="index.html">MML<sup>®</sup></a>
+      <nav class="page-nav" id="main-navigation" aria-label="页面导航">
+        <a href="index.html">首页</a>
+        <a class="is-active" href="skills.html" aria-current="page">个人经历</a>
+        <a href="work.html">项目</a>
+        <a href="recognitions.html">了解我</a>
+        <a href="contact.html">联系我</a>
+      </nav>
+      <button class="site-menu-toggle" type="button" aria-label="打开导航" aria-controls="main-navigation" aria-expanded="false"><span></span><span></span></button>
+    </header>
+
+    <main class="experience-main" id="main-content">
+      <section class="experience-hero" aria-labelledby="experience-title">
+        <p class="experience-eyebrow"><span></span>MY JOURNEY</p>
+        <h1 id="experience-title">A journey of learning<br />and growth</h1>
+      </section>
+
+      <section class="experience-timeline" aria-label="个人经历时间轴">
+        <div class="experience-line" aria-hidden="true"><span></span></div>
+
+        <article class="experience-entry is-active">
+          <figure class="experience-image">
+            <img src="assets/experience-01-library.jpg" alt="图书馆自习与本科阶段的学习积累" width="1080" height="1310" loading="eager" />
+          </figure>
+          <div class="experience-node" aria-hidden="true"></div>
+          <div class="experience-copy">
+            <time datetime="2021-09/2025-06">2021—2025</time>
+            <div class="experience-text"><span>01</span><h2>本科阶段</h2><p>系统学习财务管理与会计基础，在课程、实践与校园活动中逐步建立专业框架。</p></div>
+          </div>
+        </article>
+
+        <article class="experience-entry">
+          <figure class="experience-image">
+            <img src="assets/experience-02-appointment.jpg" alt="社团部长聘任证书" width="1706" height="1279" loading="lazy" />
+          </figure>
+          <div class="experience-node" aria-hidden="true"></div>
+          <div class="experience-copy">
+            <time datetime="2022-09/2023-09">2022—2023</time>
+            <div class="experience-text"><span>02</span><h2>社团部长</h2><p>负责社团活动组织与协作推进，在沟通、协调和现场执行中提升领导力。</p></div>
+          </div>
+        </article>
+
+        <article class="experience-entry">
+          <figure class="experience-image">
+            <img src="assets/experience-03-lecture.jpg" alt="课堂中学习财务与数据分析知识" width="1706" height="1279" loading="lazy" />
+          </figure>
+          <div class="experience-node" aria-hidden="true"></div>
+          <div class="experience-copy">
+            <time datetime="2025-09/2028-06">2025—2028</time>
+            <div class="experience-text"><span>03</span><h2>研究生阶段</h2><p>继续深化财务与数据分析能力，关注业务理解、研究表达与综合判断。</p></div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div class="page-chain-sentinel"><span>向下滚动进入项目页</span></div>
+    <link rel="stylesheet" href="page-chain.css" />
+    <script src="experience-timeline.js"></script>
+    <script src="page-chain.js"></script>
+    <script src="site-navigation.js"></script>
+  </body>
+</html>
