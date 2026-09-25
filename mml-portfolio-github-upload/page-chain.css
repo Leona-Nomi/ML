@@ -1,8 +1,7 @@
 .page-chain-sentinel { position: relative; z-index: 4; display: flex; min-height: 18vh; align-items: center; justify-content: center; padding: 2rem; color: rgba(255, 253, 250, .58); font-family: "Times New Roman", "Microsoft YaHei", "Noto Sans CJK SC", serif; font-size: .62rem; letter-spacing: .12em; text-align: center; }
-.page-chain-sentinel span { display: inline-flex; align-items: center; gap: .7rem; }
-.page-chain-sentinel span::before { display: block; width: .45rem; height: .45rem; border-radius: 50%; background: #ff6a1f; box-shadow: 0 0 12px #ff6a1f; content: ""; }
+.page-chain-sentinel span { display: inline-flex; align-items: center; }
 .page-chain-link { display: inline-flex; min-height: 44px; align-items: center; gap: .8rem; padding: .7rem 1rem; border-bottom: 1px solid rgba(255, 253, 250, .3); color: inherit; text-decoration: none; transition: color .2s ease, border-color .2s ease; }
-.page-chain-link::before { display: block; width: .45rem; height: .45rem; border-radius: 50%; background: #ff6a1f; box-shadow: 0 0 12px #ff6a1f; content: ""; }
 .page-chain-link::after { content: "↘"; color: #ff6a1f; font-size: .9rem; }
 .page-chain-link:hover, .page-chain-link:focus-visible { border-color: #ff6a1f; color: #fffdfa; outline: none; }
 .main-site-home { overflow-x: hidden; overflow-y: auto; }
+body.is-page-chain-navigating { opacity: 0; transition: opacity .16s ease; }

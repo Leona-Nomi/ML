@@ -81,15 +81,6 @@
   text-wrap: balance;
 }
 
-.visual-project-page .detail-copy h1::after {
-  display: block;
-  width: clamp(3rem, 6vw, 5.5rem);
-  height: 2px;
-  margin: clamp(2rem, 4vw, 3.25rem) auto 0;
-  background: var(--work-orange);
-  content: "";
-}
-
 .visual-project-page .detail-note-copy {
   display: flex;
   width: min(100%, 46rem);
@@ -126,23 +117,7 @@
 .visual-project-page .detail-tags small { color: var(--work-muted); font-size: .58rem; font-weight: 400; letter-spacing: .12em; }
 .visual-project-page .detail-tags strong { color: var(--work-white); font-size: .72rem; font-weight: 400; letter-spacing: .06em; }
 
-.visual-project-page .detail-scroll-link {
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  padding-bottom: .55rem;
-  border-bottom: 1px solid var(--work-line);
-  color: var(--work-white);
-  font-family: var(--work-mono);
-  font-size: .64rem;
-  letter-spacing: .1em;
-  transition: color .25s ease, border-color .25s ease;
-}
-
-.visual-project-page .detail-scroll-link span { margin-left: .7rem; color: var(--work-orange); font-size: 1rem; }
-.visual-project-page .detail-scroll-link:hover { border-color: var(--work-orange); color: var(--work-orange); }
 .visual-project-page .work-menu:focus-visible,
-.visual-project-page .detail-scroll-link:focus-visible,
 .visual-project-page .accordion-trigger:focus-visible { outline: 2px solid var(--work-orange); outline-offset: 5px; }
 
 .visual-project-page .detail-project-photo {
@@ -214,7 +189,6 @@
 
 .visual-project-page .accordion-heading > div { max-width: 38rem; }
 .visual-project-page .accordion-heading p { margin: 0; color: var(--work-soft, var(--work-white)); font-family: var(--work-sans); font-size: clamp(2rem, 4.2vw, 4.2rem); font-weight: 300; line-height: 1.05; letter-spacing: -.07em; text-wrap: balance; }
-.visual-project-page .accordion-heading small { display: block; margin-top: .8rem; color: var(--work-muted); font-family: var(--work-mono); font-size: .62rem; letter-spacing: .08em; }
 .visual-project-page .accordion-list { border-top: 1px solid var(--work-line); border-bottom: 1px solid var(--work-line); }
 .visual-project-page .accordion-item { border-bottom: 1px solid var(--work-line); }
 .visual-project-page .accordion-item:last-child { border-bottom: 0; }

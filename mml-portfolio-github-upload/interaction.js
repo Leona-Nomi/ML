@@ -5,19 +5,82 @@ const interactionTrack = document.querySelector('.interaction-track');
 const interactionCards = [...document.querySelectorAll('.interaction-card')];
 const interactionDots = [...document.querySelectorAll('.interaction-guide button')];
 const interactionCount = document.querySelector('[data-current-slide]');
+const heroDoor = document.querySelector('.interaction-door--hero');
+const heroVisual = document.querySelector('.interaction-hero-visual');
 
 if (interactionCarousel && interactionTrack && interactionCards.length && interactionDots.length) {
   const slideCount = interactionDots.length;
-  const transitionDuration = 1100;
-  const autoplayDelay = 6500;
+  const transitionDuration = 760;
+  const autoplayDelay = 3000;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   let interactionIndex = 0;
   let interactionTimer = 0;
   let cloneResetTimer = 0;
   let resizeFrame = 0;
-  let hoverPaused = false;
-  let focusPaused = false;
+  let lastScrollY = window.scrollY;
+  let scrollFrame = 0;
+  let heroDoorArmed = false;
+  let heroDoorArmScrollY = window.scrollY;
+
+  const setHeroDoorOpen = (isOpen) => {
+    if (!heroDoor || !heroVisual) return;
+    const shouldOpen = reducedMotion.matches ? true : isOpen;
+    heroDoor.classList.toggle('is-open', shouldOpen);
+    heroVisual.classList.toggle('is-door-open', shouldOpen);
+    heroVisual.classList.toggle('is-door-closed', !shouldOpen);
+  };
+
+  const getHeroDoorVisibility = () => {
+    if (!heroVisual) return { isPresented: false, isBefore: false, isPast: false };
+
+    const rect = heroVisual.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const safeTop = Math.min(96, viewportHeight * .12);
+    const safeBottom = Math.min(24, viewportHeight * .04);
+    const availableHeight = Math.max(0, viewportHeight - safeTop - safeBottom);
+    const visibleTop = Math.max(rect.top, safeTop);
+    const visibleBottom = Math.min(rect.bottom, viewportHeight - safeBottom);
+    const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+    const targetHeight = Math.min(rect.height, availableHeight);
+
+    return {
+      isPresented: targetHeight > 0 && visibleHeight >= targetHeight * .96,
+      isBefore: rect.top >= viewportHeight - safeBottom,
+      isPast: rect.bottom <= safeTop,
+    };
+  };
+
+  const syncHeroDoorDirection = () => {
+    scrollFrame = 0;
+    const currentScrollY = window.scrollY;
+    const scrollDelta = currentScrollY - lastScrollY;
+
+    if (Math.abs(scrollDelta) > 1) {
+      const visibility = getHeroDoorVisibility();
+      const openDistance = Math.max(48, Math.min(96, window.innerHeight * .08));
+
+      if (scrollDelta < 0) {
+        setHeroDoorOpen(false);
+        heroDoorArmed = visibility.isPresented;
+        heroDoorArmScrollY = currentScrollY;
+      } else if (visibility.isBefore || (!heroDoorArmed && visibility.isPast)) {
+        heroDoorArmed = false;
+        heroDoorArmScrollY = currentScrollY;
+        setHeroDoorOpen(false);
+      } else if (!heroDoorArmed) {
+        setHeroDoorOpen(false);
+        if (visibility.isPresented) {
+          heroDoorArmed = true;
+          heroDoorArmScrollY = currentScrollY;
+        }
+      } else if (currentScrollY - heroDoorArmScrollY >= openDistance) {
+        setHeroDoorOpen(true);
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  };
 
   const stopAutoplay = () => {
     window.clearInterval(interactionTimer);
@@ -34,8 +97,11 @@ if (interactionCarousel && interactionTrack && interactionCards.length && intera
       dot.tabIndex = isActive ? 0 : -1;
     });
 
-    interactionCards.slice(0, slideCount).forEach((card, cardIndex) => {
-      card.setAttribute('aria-hidden', String(cardIndex !== activeIndex));
+    interactionCards.forEach((card, cardIndex) => {
+      const isClone = cardIndex >= slideCount;
+      const isActive = !isClone && cardIndex === activeIndex;
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-hidden', String(!isActive));
     });
 
     if (interactionCount) {
@@ -81,7 +147,7 @@ if (interactionCarousel && interactionTrack && interactionCards.length && intera
 
   const startAutoplay = () => {
     stopAutoplay();
-    if (hoverPaused || focusPaused || document.hidden) return;
+    if (document.hidden) return;
     interactionTimer = window.setInterval(advanceInteraction, autoplayDelay);
   };
 
@@ -102,8 +168,8 @@ if (interactionCarousel && interactionTrack && interactionCards.length && intera
       const currentIndex = Number(dot.dataset.slide);
       let nextIndex = currentIndex;
 
-      if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % slideCount;
-      if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + slideCount) % slideCount;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (currentIndex + 1) % slideCount;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (currentIndex - 1 + slideCount) % slideCount;
       if (event.key === 'Home') nextIndex = 0;
       if (event.key === 'End') nextIndex = slideCount - 1;
       if (nextIndex === currentIndex) return;
@@ -111,29 +177,6 @@ if (interactionCarousel && interactionTrack && interactionCards.length && intera
       event.preventDefault();
       selectInteraction(nextIndex, true);
     });
-  });
-
-  interactionCarousel.addEventListener('pointerenter', (event) => {
-    if (event.pointerType !== 'mouse') return;
-    hoverPaused = true;
-    stopAutoplay();
-  });
-
-  interactionCarousel.addEventListener('pointerleave', (event) => {
-    if (event.pointerType !== 'mouse') return;
-    hoverPaused = false;
-    startAutoplay();
-  });
-
-  interactionCarousel.addEventListener('focusin', () => {
-    focusPaused = true;
-    stopAutoplay();
-  });
-
-  interactionCarousel.addEventListener('focusout', (event) => {
-    if (interactionCarousel.contains(event.relatedTarget)) return;
-    focusPaused = false;
-    startAutoplay();
   });
 
   window.addEventListener('resize', () => {
@@ -151,6 +194,12 @@ if (interactionCarousel && interactionTrack && interactionCards.length && intera
 
   reducedMotion.addEventListener('change', () => moveInteraction(interactionIndex, false));
 
+  window.addEventListener('scroll', () => {
+    if (scrollFrame) return;
+    scrollFrame = window.requestAnimationFrame(syncHeroDoorDirection);
+  }, { passive: true });
+
   moveInteraction(0, false);
+  setHeroDoorOpen(false);
   startAutoplay();
 }

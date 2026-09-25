@@ -7,6 +7,7 @@
     <title>MML / Portfolio</title>
     <link rel="stylesheet" href="work.css" />
     <link rel="stylesheet" href="site-improvements.css" />
+    <link rel="stylesheet" href="brand-system.css" />
   </head>
   <body class="work-page" data-previous-page="skills.html" data-next-page="recognitions.html">
     <a class="skip-link" href="#main-content">跳到主要内容</a>
@@ -18,6 +19,7 @@
     </div>
 
     <header class="work-header">
+      <a class="work-nav-brand" href="index.html">MML<sup>®</sup></a>
       <nav class="work-site-nav" id="main-navigation" aria-label="页面导航">
         <a href="index.html">首页</a>
         <a href="skills.html">个人经历</a>
@@ -34,7 +36,6 @@
         <a class="project-card" href="stats.html">
           <div class="project-image" style="--project-image: url('assets/work-01-audit-trace.png')">
             <span class="project-number">01 / 03</span>
-            <span class="project-view">view <b>↗</b></span>
             <h2>AUDIT PRACTICE</h2>
           </div>
           <div class="project-info"><p>审计实习经历</p><span>AUDIT PRACTICE / 2023—2024</span></div>
@@ -43,7 +44,6 @@
           <a class="project-card" href="interaction.html">
             <div class="project-image" style="--project-image: url('assets/project2-finance-operations.png')">
             <span class="project-number">02 / 03</span>
-            <span class="project-view">view <b>↗</b></span>
             <h2>FINANCE OPERATIONS</h2>
           </div>
           <div class="project-info"><p>财务实践与数据管理</p><span>FINANCE OPERATIONS / 2025</span></div>
@@ -52,7 +52,6 @@
         <a class="project-card" href="project.html?project=visual">
             <div class="project-image" style="--project-image: url('assets/project3-kingdee.png')">
             <span class="project-number">03 / 03</span>
-            <span class="project-view">view <b>↗</b></span>
               <h2>PROJECT ASSISTANT</h2>
             </div>
           <div class="project-info"><p>金蝶云星空</p><span>KINGDEE ERP / 2025</span></div>
@@ -61,7 +60,7 @@
     </main>
 
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
-    <div class="page-chain-sentinel"><span>向下滚动进入了解我页</span></div>
+    <div class="page-chain-sentinel" aria-label="页面导航"></div>
     <link rel="stylesheet" href="page-chain.css" />
     <script src="page-chain.js"></script>
     <script src="work.js"></script>

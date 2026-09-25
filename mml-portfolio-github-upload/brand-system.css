@@ -1,0 +1,445 @@
+:root {
+  --brand-dark: #0f0e0d;
+  --brand-dark-soft: #171411;
+  --brand-paper: #f3f1ec;
+  --brand-paper-raised: #fbfaf7;
+  --brand-ink: #1d1918;
+  --brand-accent: #ff6422;
+  --brand-dark-muted: rgba(243, 241, 236, .66);
+  --brand-light-muted: rgba(29, 25, 24, .66);
+  --brand-dark-line: rgba(243, 241, 236, .15);
+  --brand-light-line: rgba(29, 25, 24, .15);
+  --brand-frame: 1440px;
+  --brand-gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --brand-header-height: 4.75rem;
+  --brand-serif: "Times New Roman", Georgia, "Songti SC", SimSun, serif;
+  --brand-sans: "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", Arial, sans-serif;
+  --brand-display-en: clamp(4rem, 7vw, 7.5rem);
+  --brand-display-zh: clamp(3.5rem, 6vw, 6.5rem);
+
+  /* Map the existing page vocabularies onto one shared brand system. */
+  --ml-bg: var(--brand-dark);
+  --ml-orange: var(--brand-accent);
+  --ml-orange-soft: #ff8a5b;
+  --ml-white: var(--brand-paper);
+  --ml-muted: var(--brand-dark-muted);
+  --ml-line: var(--brand-dark-line);
+  --ml-mono: var(--brand-serif);
+  --ml-sans: var(--brand-sans);
+
+  --refined-bg: var(--brand-dark);
+  --refined-paper: var(--brand-paper);
+  --refined-muted: var(--brand-dark-muted);
+  --refined-line: var(--brand-dark-line);
+  --refined-accent: var(--brand-accent);
+  --refined-pad: var(--brand-gutter);
+
+  --work-bg: var(--brand-dark);
+  --work-white: var(--brand-paper);
+  --work-muted: var(--brand-dark-muted);
+  --work-line: var(--brand-dark-line);
+  --work-orange: var(--brand-accent);
+  --work-mono: var(--brand-serif);
+  --work-sans: var(--brand-sans);
+
+  --stats-bg: var(--brand-dark);
+  --stats-white: var(--brand-paper);
+  --stats-soft: rgba(243, 241, 236, .8);
+  --stats-muted: var(--brand-dark-muted);
+  --stats-line: var(--brand-dark-line);
+  --stats-orange: var(--brand-accent);
+  --stats-mono: var(--brand-serif);
+  --stats-sans: var(--brand-sans);
+
+  --interaction-bg: var(--brand-dark);
+  --interaction-white: var(--brand-paper);
+  --interaction-soft: rgba(243, 241, 236, .8);
+  --interaction-muted: var(--brand-dark-muted);
+  --interaction-line: var(--brand-dark-line);
+  --interaction-orange: var(--brand-accent);
+  --interaction-frame: var(--brand-frame);
+  --interaction-gutter: var(--brand-gutter);
+  --interaction-serif: var(--brand-serif);
+  --interaction-sans: var(--brand-sans);
+
+  --about-detail-bg: var(--brand-paper);
+  --about-detail-ink: var(--brand-ink);
+  --about-detail-muted: #6f6966;
+  --about-detail-line: var(--brand-light-line);
+  --about-detail-orange: var(--brand-accent);
+  --about-detail-serif: var(--brand-serif);
+  --about-detail-sans: var(--brand-sans);
+  --about-detail-frame: var(--brand-frame);
+  --about-detail-gutter: var(--brand-gutter);
+
+  --site-accent: var(--brand-accent);
+  --site-ink: var(--brand-dark);
+  --site-paper: var(--brand-paper);
+  --site-line: var(--brand-dark-line);
+}
+
+html {
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--brand-sans);
+}
+
+::selection {
+  background: var(--brand-accent);
+  color: var(--brand-dark);
+}
+
+/* Shared identity and navigation scale. */
+.ml-mark,
+.refined-brand,
+.recognitions-brand,
+.work-nav-brand,
+.stats-brand,
+.interaction-brand,
+.work-logo,
+.about-detail-brand {
+  font-family: var(--brand-serif);
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.075em;
+}
+
+.ml-nav,
+.page-nav,
+.recognitions-nav,
+.work-site-nav,
+.stats-back,
+.interaction-back,
+.work-menu,
+.about-detail-header {
+  font-family: var(--brand-sans);
+  font-size: .8rem;
+  letter-spacing: .015em;
+}
+
+.ml-nav,
+.page-nav,
+.recognitions-nav,
+.work-site-nav {
+  gap: clamp(1.25rem, 2.4vw, 2.5rem);
+}
+
+.ml-nav a,
+.page-nav a,
+.recognitions-nav a,
+.work-site-nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ml-nav a.is-active,
+.page-nav a.is-active,
+.recognitions-nav a.is-active,
+.work-site-nav a.is-active {
+  color: var(--brand-accent);
+}
+
+.ml-header,
+.refined-page .page-header,
+.refined-page .recognitions-header,
+.work-page .work-header {
+  top: 0;
+  right: auto;
+  left: 50%;
+  width: min(100%, var(--brand-frame));
+  min-height: var(--brand-header-height);
+  margin: 0;
+  padding: 0 var(--brand-gutter);
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.work-page .work-header {
+  position: fixed;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  color: var(--brand-paper);
+}
+
+.work-nav-brand {
+  color: var(--brand-paper);
+  text-decoration: none;
+}
+
+.work-nav-brand sup {
+  margin-left: .15rem;
+  font-size: .42em;
+  font-weight: 400;
+  letter-spacing: 0;
+  vertical-align: top;
+}
+
+.work-page .background-brand {
+  display: none;
+}
+
+/* Two deliberate surfaces: dark for identity/work, warm paper for growth/personality. */
+.refined-page.about-editorial-page {
+  --about-bg: var(--brand-paper);
+  --about-paper: var(--brand-paper-raised);
+  --about-ink: var(--brand-ink);
+  --about-muted: var(--brand-light-muted);
+}
+
+.refined-page.experience-timeline-page {
+  --experience-bg: var(--brand-paper);
+  --experience-ink: var(--brand-ink);
+  --experience-muted: rgba(29, 25, 24, .45);
+  --experience-line: rgba(29, 25, 24, .16);
+}
+
+.refined-page.about-editorial-page .recognitions-header {
+  background: linear-gradient(180deg, rgba(243, 241, 236, .98), rgba(243, 241, 236, .86) 58%, rgba(243, 241, 236, 0));
+}
+
+.refined-page.experience-timeline-page .page-header {
+  background: linear-gradient(180deg, rgba(243, 241, 236, .98), rgba(243, 241, 236, .86) 58%, rgba(243, 241, 236, 0));
+}
+
+/* A single display voice for English; Chinese headings retain a clean sans voice. */
+.ml-name-wrap h1,
+.experience-hero h1,
+.about-hero h1,
+.contact-intro h1,
+.about-statement p,
+.portfolio-word,
+.project-card h2,
+.interaction-hero h1,
+.interaction-section-heading h2 {
+  font-family: var(--brand-serif);
+  font-weight: 400;
+}
+
+.experience-hero h1,
+.about-hero h1,
+.contact-intro h1 {
+  font-size: var(--brand-display-en);
+  line-height: .92;
+  letter-spacing: -.06em;
+}
+
+.experience-eyebrow,
+.about-eyebrow,
+.contact-eyebrow,
+.experience-text,
+.about-intro,
+.about-story-caption,
+.contact-details,
+.contact-status {
+  font-family: var(--brand-sans);
+}
+
+.experience-text h2,
+.about-story-caption h2,
+.stats-hero h1,
+.visual-project-page .detail-copy h1 {
+  font-family: var(--brand-sans);
+}
+
+.experience-copy time,
+.experience-text span,
+.about-story-caption span,
+.eyebrow,
+.hero-period,
+.interaction-eyebrow,
+.interaction-period,
+.interaction-series,
+.work-kicker,
+.detail-series,
+.detail-tags,
+.section-kicker,
+.interaction-section-label,
+.card-eyebrow {
+  font-family: var(--brand-serif);
+}
+
+.about-main,
+.experience-timeline {
+  width: min(calc(100% - (2 * var(--brand-gutter))), var(--brand-frame));
+}
+
+.about-main {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.experience-hero,
+.about-hero {
+  min-height: clamp(30rem, 66vh, 44rem);
+}
+
+/* Orange is an accent, not a second headline color. */
+.stats-hero h1 em {
+  color: var(--brand-accent);
+}
+
+.interaction-hero h1 em {
+  color: var(--brand-accent);
+  font-style: normal;
+}
+
+.interaction-hero h1 span,
+.interaction-hero h1 em {
+  display: inline;
+}
+
+.interaction-hero h1 > span {
+  display: block;
+}
+
+.interaction-hero h1 > span:last-child {
+  color: var(--interaction-white);
+}
+
+.main-site-home .black-field {
+  left: 6vw;
+  clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%, 0 8%);
+}
+
+/* Bring the detail headers into the same frame and navigation rhythm. */
+.stats-header {
+  min-height: var(--brand-header-height);
+  padding: 0 var(--brand-gutter);
+}
+
+.interaction-header,
+.visual-project-page .work-header {
+  width: min(calc(100% - (2 * var(--brand-gutter))), var(--brand-frame));
+  min-height: var(--brand-header-height);
+}
+
+.stats-header,
+.interaction-header,
+.visual-project-page .work-header {
+  border-bottom-color: var(--brand-dark-line);
+  background: rgba(15, 14, 13, .86);
+}
+
+.stats-main,
+.interaction-main {
+  max-width: var(--brand-frame);
+  padding-right: var(--brand-gutter);
+  padding-left: var(--brand-gutter);
+}
+
+.stats-hero h1 {
+  font-size: clamp(4.5rem, 8vw, 8.5rem);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.065em;
+}
+
+.visual-project-page .detail-copy h1 {
+  font-size: var(--brand-display-zh);
+  font-weight: 500;
+  line-height: .96;
+  letter-spacing: -.065em;
+}
+
+.interaction-hero h1 {
+  font-size: var(--brand-display-en);
+  line-height: .86;
+  letter-spacing: -.07em;
+}
+
+.intro-copy,
+.interaction-description,
+.visual-project-page [data-detail-description],
+.stat-copy span,
+.card-copy,
+.visual-project-page .accordion-panel p {
+  color: var(--brand-dark-muted);
+}
+
+.about-detail-copy h1,
+.about-detail-story-copy h2,
+.about-detail-note-grid h2 {
+  font-family: var(--brand-serif);
+  font-weight: 400;
+}
+
+.about-detail-copy h1 em {
+  color: inherit;
+}
+
+.about-detail-copy,
+.about-detail-intro,
+.about-detail-story-copy > p:last-child,
+.about-detail-note-grid p {
+  font-family: var(--brand-sans);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 820px) {
+  .experience-hero h1,
+  .about-hero h1,
+  .contact-intro h1 {
+    font-size: clamp(3.2rem, 13vw, 5.25rem);
+  }
+
+  .stats-hero h1 {
+    font-size: clamp(3.6rem, 14vw, 6.25rem);
+  }
+
+  .visual-project-page .detail-copy h1 {
+    font-size: clamp(3.25rem, 14vw, 5.25rem);
+  }
+
+  .interaction-hero h1 {
+    font-size: clamp(3.6rem, 16vw, 5.5rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .ml-header,
+  .refined-page .page-header,
+  .refined-page .recognitions-header,
+  .work-page .work-header {
+    right: 0;
+    left: 0;
+    width: 100%;
+    min-height: var(--brand-header-height);
+    padding: .9rem 1.25rem;
+    transform: none;
+  }
+
+  .main-site-home .black-field {
+    left: 0;
+    clip-path: none;
+  }
+
+  .about-main,
+  .experience-timeline {
+    width: calc(100% - 2.5rem);
+  }
+
+  .site-menu-open .work-nav-brand,
+  .site-menu-open .refined-brand,
+  .site-menu-open .recognitions-brand,
+  .site-menu-open .ml-mark {
+    color: var(--brand-paper) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

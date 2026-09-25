@@ -6,8 +6,9 @@
     <meta name="description" content="MML 的个人介绍页面。" />
     <title>MML / About Me</title>
     <link rel="stylesheet" href="recognitions.css" />
-    <link rel="stylesheet" href="refined-pages.css" />
+    <link rel="stylesheet" href="refined-pages.css?v=20260923-photo-tone-2" />
     <link rel="stylesheet" href="site-improvements.css" />
+    <link rel="stylesheet" href="brand-system.css" />
   </head>
   <body class="recognitions-page refined-page about-editorial-page" data-previous-page="work.html" data-next-page="contact.html">
     <a class="skip-link" href="#main-content">跳到主要内容</a>
@@ -26,43 +27,66 @@
     <main class="about-main" id="main-content">
       <section class="about-hero" aria-labelledby="about-title">
         <p class="about-eyebrow"><span></span>ABOUT MML</p>
-        <h1 id="about-title">Meet the person<br />behind the work.</h1>
+        <h1 id="about-title" lang="en">Meet the person<br />behind the work.</h1>
         <p class="about-intro">专业构成我的方法，兴趣塑造我的视角。工作之外，我也持续在运动、表达、舞台与志愿行动中理解自己与他人。</p>
       </section>
 
-      <section class="about-gallery" aria-label="个人生活与兴趣">
-        <article class="about-story about-story--half">
-          <a class="about-story-media" href="about-detail-1.html" aria-label="查看舞蹈与音乐详情">
-            <img src="assets/about-01-dance.jpg" alt="舞蹈排练" width="1084" height="544" decoding="async" />
-          </a>
-          <div class="about-story-caption" id="about-dance"><span>01 / RHYTHM &amp; VOICE</span><h2>舞蹈与音乐</h2><p>在排练、演唱和协作里保持专注，也享受身体与声音建立联系的过程。</p></div>
-        </article>
+      <section class="about-gallery about-gallery--motion" aria-label="个人生活与兴趣">
+        <section class="about-pair-scene" data-about-pair aria-label="舞蹈、音乐、表达与分享">
+          <div class="about-pair-stage">
+            <div class="about-pair-reveal about-pair-reveal--statement">
+              <p lang="en">Curiosity keeps<br />the work alive.</p>
+              <span>保持好奇，也保持行动。</span>
+            </div>
 
-        <article class="about-story about-story--half">
-          <a class="about-story-media" href="about-detail-2.html" aria-label="查看表达与分享详情">
-            <img src="assets/about-04-presentation.jpg" alt="项目分享" width="1058" height="1127" loading="lazy" decoding="async" />
-          </a>
-          <div class="about-story-caption" id="about-presentation"><span>02 / EXPRESSION</span><h2>表达与分享</h2><p>把复杂信息整理清楚，用结构、语言和视觉完成一次有效沟通。</p></div>
-        </article>
+            <div class="about-pair-cards">
+              <article class="about-story about-story--half about-story--left">
+                <a class="about-story-media" href="about-detail-1.html" aria-label="查看舞蹈与音乐详情">
+                  <img class="about-photo-consistent" src="assets/about-01-dance.jpg" alt="舞蹈排练" width="1084" height="544" decoding="async" />
+                </a>
+                <div class="about-story-caption" id="about-dance"><span>01 / RHYTHM &amp; VOICE</span><h2>舞蹈与音乐</h2><p>在排练、演唱和协作里保持专注，也享受身体与声音建立联系的过程。</p></div>
+              </article>
 
-        <div class="about-statement"><p>Curiosity keeps<br />the work alive.</p><span>保持好奇，也保持行动。</span></div>
+              <article class="about-story about-story--half about-story--right">
+                <a class="about-story-media" href="about-detail-2.html" aria-label="查看表达与分享详情">
+                  <img src="assets/about-04-presentation.jpg" alt="项目分享" width="1058" height="1127" loading="lazy" decoding="async" />
+                </a>
+                <div class="about-story-caption" id="about-presentation"><span>02 / EXPRESSION</span><h2>表达与分享</h2><p>把复杂信息整理清楚，用结构、语言和视觉完成一次有效沟通。</p></div>
+              </article>
+            </div>
 
-        <article class="about-story about-story--half">
-          <a class="about-story-media" href="about-detail-4.html" aria-label="查看志愿行动详情">
-            <img src="assets/about-volunteer-01-group.jpg" alt="志愿行动团队合照" width="2048" height="1152" loading="lazy" decoding="async" />
-          </a>
-          <div class="about-story-caption" id="about-volunteer"><span>03 / SERVICE</span><h2>志愿行动</h2><p>在真实的服务现场与人协作，把关注落实成具体的陪伴与行动。</p></div>
-        </article>
+          </div>
+        </section>
 
-        <article class="about-story about-story--half">
-          <a class="about-story-media" href="about-detail-5.html" aria-label="查看运动与日常详情">
-            <img src="assets/about-02-sport.jpg" alt="羽毛球活动" width="1279" height="1706" loading="lazy" decoding="async" />
-          </a>
-          <div class="about-story-caption" id="about-sport"><span>04 / ACTION</span><h2>运动与日常</h2><p>在行动中保持开放和能量，让身体、思考与生活持续流动。</p></div>
-        </article>
+        <section class="about-pair-scene about-pair-scene--contact" data-about-pair aria-label="志愿行动、运动与日常">
+          <div class="about-pair-stage">
+            <div class="about-pair-reveal about-pair-reveal--contact">
+              <p>NEXT / CONTACT</p>
+              <a href="contact.html">联系我 <span aria-hidden="true">↗</span></a>
+              <small>聊聊机会，也聊聊下一步。</small>
+            </div>
+
+            <div class="about-pair-cards">
+              <article class="about-story about-story--half about-story--left">
+                <a class="about-story-media" href="about-detail-4.html" aria-label="查看志愿行动详情">
+                  <img src="assets/about-volunteer-01-group.jpg" alt="志愿行动团队合照" width="2048" height="1152" loading="lazy" decoding="async" />
+                </a>
+                <div class="about-story-caption" id="about-volunteer"><span>03 / SERVICE</span><h2>志愿行动</h2><p>在真实的服务现场与人协作，把关注落实成具体的陪伴与行动。</p></div>
+              </article>
+
+              <article class="about-story about-story--half about-story--right">
+                <a class="about-story-media" href="about-detail-5.html" aria-label="查看运动与日常详情">
+                  <img src="assets/about-02-sport.jpg" alt="羽毛球活动" width="1279" height="1706" loading="lazy" decoding="async" />
+                </a>
+                <div class="about-story-caption" id="about-sport"><span>04 / ACTION</span><h2>运动与日常</h2><p>在行动中保持开放和能量，让身体、思考与生活持续流动。</p></div>
+              </article>
+            </div>
+
+          </div>
+        </section>
       </section>
     </main>
-    <div class="page-chain-sentinel"><span>向下滚动进入联系页</span></div>
+    <div class="page-chain-sentinel" aria-label="页面导航"></div>
     <link rel="stylesheet" href="page-chain.css" />
     <script src="about-editorial.js"></script>
     <script src="page-chain.js"></script>

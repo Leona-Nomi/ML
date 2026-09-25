@@ -25,7 +25,6 @@ button { color: inherit; font: inherit; }
 .pill-mark { color: #d9d4e4; font-size: 1.2rem; }
 .portfolio-intro { position: absolute; top: 16rem; left: 3.2vw; margin: 0; font-size: clamp(1.05rem, 1.7vw, 1.65rem); line-height: 1.55; letter-spacing: -.055em; }
 .left-index-link { position: absolute; top: 57%; left: 3.2vw; display: flex; width: calc(18vw - 5vw); min-width: 11rem; align-items: center; gap: .65rem; padding: .75rem 0; border-top: 1px solid var(--work-line); border-bottom: 1px solid var(--work-line); color: var(--work-white); font-family: var(--work-mono); font-size: .61rem; letter-spacing: .1em; transition: color .25s ease, border-color .25s ease; }
-.left-index-link i { display: block; flex: 1; height: 1px; background: var(--work-orange); }
 .left-index-link b { font-weight: 400; }
 .left-index-link em { color: var(--work-orange); font-size: 1rem; font-style: normal; }
 .left-index-link:hover { border-color: var(--work-orange); color: var(--work-orange); }
@@ -58,10 +57,8 @@ button { color: inherit; font: inherit; }
 .project-image { position: relative; min-height: 55vh; overflow: hidden; background: var(--project-image) center/cover, linear-gradient(135deg, #572617, #111); isolation: isolate; }
 .project-image::before { position: absolute; z-index: -1; inset: 0; background: linear-gradient(145deg, rgba(255, 106, 31, .18), rgba(0, 0, 0, .72)); content: ""; }
 .project-image::after { position: absolute; z-index: -1; inset: 0; background: radial-gradient(circle at 50% 38%, transparent 0 18%, rgba(0, 0, 0, .42) 75%); content: ""; }
-.project-number, .project-view { position: absolute; top: 1rem; z-index: 1; font-family: var(--work-mono); font-size: .59rem; letter-spacing: .1em; }
+.project-number { position: absolute; top: 1rem; z-index: 1; font-family: var(--work-mono); font-size: .59rem; letter-spacing: .1em; }
 .project-number { left: 1rem; color: var(--work-orange); }
-.project-view { right: 1rem; }
-.project-view b { margin-left: .3rem; color: var(--work-orange); font-size: .9rem; font-weight: 400; }
 .project-image h2 { position: absolute; right: 5%; bottom: 8%; left: 5%; margin: 0; font-size: clamp(3rem, 6vw, 7rem); font-weight: 300; line-height: .8; letter-spacing: -.1em; text-align: center; text-shadow: 0 2px 22px rgba(0, 0, 0, .45); }
 .project-info { display: flex; justify-content: space-between; gap: 1rem; padding: .9rem 1.1rem; font-family: var(--work-mono); }
 .project-info p, .project-info span { margin: 0; font-size: .58rem; }
